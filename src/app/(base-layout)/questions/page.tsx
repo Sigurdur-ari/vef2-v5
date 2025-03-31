@@ -25,7 +25,7 @@ const query = graphql(
 
 export default async function QuestionsPage() {
   //Ekki góð leið til, en þetta virkar í development
-  revalidateTag("datocms");
+  revalidateTag('datocms');
 
   const { allQuestions } = await executeQuery(query, {});
 
@@ -38,14 +38,14 @@ export default async function QuestionsPage() {
   return (
     <>
       <h3>Hér eru spurningarnar, endilega veldu eina til að svara!!</h3>
-  
+
       <ul>
         {allQuestions.map((question) => (
           <li key={question.id}>
-            <Link href={`/questions/${question.id}`}>
-                {question.title}
-            </Link>
-            {question.authors.length > 0 ? " eftir: " + question.authors.map((author) => author.name).join(", ") : ""}
+            <Link href={`/questions/${question.id}`}>{question.title}</Link>
+            {question.authors.length > 0
+              ? ' eftir: ' + question.authors.map((author) => author.name).join(', ')
+              : ''}
           </li>
         ))}
       </ul>
