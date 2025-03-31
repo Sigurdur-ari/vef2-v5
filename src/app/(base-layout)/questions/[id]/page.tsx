@@ -46,8 +46,21 @@ export default async function QuestionsPage({ params }: { params: Promise<{ id: 
   return (
     <>
       <h3>{question.title}</h3>
+      <p>Úr flokknum {question.flokkur.title}</p>
       <div>
+        <h2>Spurning: </h2>
         <Markdown>{question.spurning}</Markdown>
+      </div>
+      <div>
+        <h3>Höfundar spurningar:</h3>
+        <p>{question.authors.length > 0
+              ? question.authors.map((author) => author.name).join(', ')
+              : 'Spurning hefur ekki höfund'}
+        </p>
+
+        <p>{question.authors.length > 0
+              ? "Þeirra uppáhalds flokkar eru: " + question.authors.map((author) => author.uppahaldsSpurningaflokkur?.title).join(', ')
+              : ''}</p>
       </div>
       <Link href="/questions">Til baka</Link>
     </>
