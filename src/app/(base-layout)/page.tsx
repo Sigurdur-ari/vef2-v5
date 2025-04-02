@@ -86,7 +86,7 @@ export const generateMetadata = generateMetadataFn({
 
 export default async function Page() {
   //Ekki góð leið til, en þetta virkar í development
-    revalidateTag('datocms');
+  revalidateTag('datocms');
 
   const { page } = await executeQuery(query);
 
