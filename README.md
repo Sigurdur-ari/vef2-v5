@@ -1,3 +1,15 @@
+# Verkefnið
+Þetta verkefni var unnið út frá grunn af lausn óla úr fyrirlestri. 
+
+Unnið var með DatoCMS og spurningakerfi útfært. Hægt er að skoða spurningar og sjá lista af spurningum sem hafa höfunda. Ekki var útfært svör við spurningum. Það er fyrir frekari útgáfur af þessum einfalda vef. 
+
+Vefurinn er hostaður á vercel á slóðinni: https://vef2-v5-two.vercel.app/
+
+## upplýsingar frá höfundi
+Þar sem það hefur verið frekar mikið að gera í skólanum síðustu vikur og ég lagði mikinn metnað í hópverkefni 2 ásamt því að vera að reyna gera einstaklingsverkefnið mitt vel ákvað ég að útfæra aðeins grunn virknina í þessu verkefni sem uppfyllir helstu kröfurnar. 
+
+
+# Upplýsingar frá DatoCMS starter-kit
 <!--datocms-autoinclude-header start-->
 
 <a href="https://www.datocms.com/"><img src="https://www.datocms.com/images/full_logo.svg" height="60"></a>
