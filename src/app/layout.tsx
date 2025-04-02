@@ -35,7 +35,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <header>
-          <h1>Spurningavefurinn datocms</h1>
+          <h1>Spurningavefurinn v5</h1>
         </header>
         <main>{children}</main>
       </body>

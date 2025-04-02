@@ -9,6 +9,7 @@ import { executeQuery } from '@/lib/datocms/executeQuery';
 import { generateMetadataFn } from '@/lib/datocms/generateMetadataFn';
 import { graphql } from '@/lib/datocms/graphql';
 import { isCode, isHeading } from 'datocms-structured-text-utils';
+import { revalidateTag } from 'next/cache';
 import dynamic from 'next/dynamic';
 import { draftMode } from 'next/headers';
 import Link from 'next/link';
@@ -84,11 +85,10 @@ export const generateMetadata = generateMetadataFn({
 });
 
 export default async function Page() {
-  const { isEnabled: isDraftModeEnabled } = draftMode();
+  //Ekki góð leið til, en þetta virkar í development
+    revalidateTag('datocms');
 
-  const { page } = await executeQuery(query, {
-    includeDrafts: isDraftModeEnabled,
-  });
+  const { page } = await executeQuery(query);
 
   if (!page) {
     notFound();
@@ -97,7 +97,6 @@ export default async function Page() {
   return (
     <>
       <h1>{page.title}</h1>
-      <Link href="/questions">Questions</Link>
       {/*
        * Structured Text is a JSON format similar to HTML, but with the advantage
        * of a significantly reduced and tailored set of possible tags
@@ -185,6 +184,7 @@ export default async function Page() {
           }
         }
       />
+      <Link href="/questions">Questions</Link>
       <footer>Published at {page._firstPublishedAt}</footer>
     </>
   );

@@ -35,7 +35,6 @@ export default async function QuestionsPage({ params }: { params: Promise<{ id: 
   revalidateTag('datocms');
 
   const { id } = await params;
-  console.log(id);
 
   const { question } = await executeQuery(query, { variables: { id } });
 
@@ -61,8 +60,11 @@ export default async function QuestionsPage({ params }: { params: Promise<{ id: 
 
         <p>
           {question.authors.length > 0
-            ? 'Þeirra uppáhalds flokkar eru: ' +
-              question.authors.map((author) => author.uppahaldsSpurningaflokkur?.title).join(', ')
+            ? question.authors.length !== 1
+              ? 'Þeirra uppáhalds flokkar eru: ' +
+                question.authors.map((author) => author.uppahaldsSpurningaflokkur?.title).join(', ')
+              : 'Hans uppáhalds flokkur er: ' +
+                question.authors.map((author) => author.uppahaldsSpurningaflokkur?.title).join(', ')
             : ''}
         </p>
       </div>

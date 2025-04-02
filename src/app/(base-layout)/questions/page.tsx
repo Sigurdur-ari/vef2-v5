@@ -29,15 +29,13 @@ export default async function QuestionsPage() {
 
   const { allQuestions } = await executeQuery(query, {});
 
-  console.log(allQuestions);
-
   if (!allQuestions) {
     notFound();
   }
 
   return (
     <>
-      <h3>Hér eru spurningarnar, endilega veldu eina til að svara!!</h3>
+      <h3>Hér eru spurningarnar, endilega veldu eina til að skoða!!</h3>
 
       <ul>
         {allQuestions.map((question) => (
@@ -49,6 +47,7 @@ export default async function QuestionsPage() {
           </li>
         ))}
       </ul>
+      <Link href="/">Til baka</Link>
     </>
   );
 }
